@@ -70,7 +70,19 @@ button:hover{
 .aiBoardCell:hover{
     background: rgb(209, 209, 209);
 }
-
+#description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#gameResult{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: rgb(255, 217, 0);
+    
+}
 .board{
    // border: 1px solid black;
     display: grid;
