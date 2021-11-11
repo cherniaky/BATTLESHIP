@@ -13,6 +13,7 @@ function Gameboard() {
     const currentShips = [];
     const allAttackedCoordinates = [];
 
+   // const getCellsToAttack = () => allCells.filter((cell)=> !)
     const getRemainingFreeCells = () =>
         allCells.filter((cell) => !allAttackedCoordinates.includes(cell));
     const getMissedAttacks = () => missedAttacks;
