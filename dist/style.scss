@@ -21,7 +21,7 @@ font-family: 'Roboto', sans-serif;
     height: 100vh;
     width: 100%;
     div{
-        margin: 1rem;
+        margin: 0.6rem;
         font-size: 1.4rem;
     }
 }
@@ -41,14 +41,13 @@ font-family: 'Roboto', sans-serif;
         background-color: white;
         border-radius: 10px;
         transition-duration: 0.4s;
-       // background-color: var(--starndart-grey);
+       
     }
     
 }
 
 button:hover{
-    background-color: var(--starndart-grey);
-   color: white;
+   box-shadow: 5px 10px black;
 }
 
 #gameArea{
@@ -59,6 +58,7 @@ button:hover{
 }
 .userBoardCell{
  cursor: pointer;
+ transition: 0.4s;
 }
 .userBoardCell:hover{
     background: rgb(209, 209, 209);
@@ -66,6 +66,7 @@ button:hover{
 
 .aiBoardCell{
  cursor: pointer;
+ transition: 0.2s;
 }
 .aiBoardCell:hover{
     background: rgb(209, 209, 209);
@@ -89,6 +90,7 @@ button:hover{
     height: fit-content;
     grid-template-columns: repeat(10, 1fr);
     grid-gap: 3px;
+    margin: 1px;
     div{
         margin: 0;
         padding: 1rem;
@@ -96,3 +98,16 @@ button:hover{
         border-radius: 4px;
     }
 }
+.tableInfo{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+#aiArea{
+display: none;
+flex-direction: column;
+}
+

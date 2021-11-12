@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,10 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
     <div id="title">BATTLESHIP</div>
     <div id="startMenu">
-        <div id="description" >Place your ships on the board</div>
+        <div id="description">Place your ships on the board</div>
         <div id="gameResult"></div>
         <div id="controls">
             <button id="restart">Restart</button>
@@ -23,10 +25,23 @@
         </div>
     </div>
     <div id="gameArea">
-        <div id="userBoard" class="board"></div>
-        <div id="aiBoard" class="board"></div>
+        <div id="userArea">
+            <div class="tableInfo">
+                <div>Your board</div>
+                <div id="userShipsRemaining">5 Ships Available</div>
+            </div>
+            <div id="userBoard" class="board"></div>
+        </div>
+        <div id="aiArea">
+            <div class="tableInfo">
+                <div>Computer board</div>
+                <div id="aiShipsRemaining">5 Ships Available</div>
+            </div>
+            <div id="aiBoard" class="board"></div>
+        </div>
     </div>
 
     <script src="main.js" defer></script>
 </body>
+
 </html>

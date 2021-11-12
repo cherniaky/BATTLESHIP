@@ -6,6 +6,11 @@ const restart = document.querySelector("#restart");
 const curShipLength = document.querySelector("#currentShipSize");
 const description = document.querySelector("#description");
 const gameResult = document.querySelector("#gameResult");
+const gameInfos =document.querySelectorAll(".tableInfo")
+const aiArea =document.querySelector("#aiArea");
+const userShipsRemaining = document.querySelector("#userShipsRemaining");
+const aiShipsRemaining = document.querySelector("#aiShipsRemaining");
+
 let user = Player("You");
 let ai = Player("AI");
 let orientationChoice = "vertical";
@@ -71,6 +76,7 @@ for (let i = 0; i < aiCells.length; i++) {
         //console.log(after);
         if (after == before) {
             renderAiShips();
+            renderRemainingShips();
         } else {
             let randomPosition = Math.floor(
                 Math.random() * user.board.getRemainingFreeCells().length
@@ -85,6 +91,7 @@ for (let i = 0; i < aiCells.length; i++) {
             afterAI = user.board.getMissedAttacks().length;
             renderUserShips();
             renderAiShips();
+           //renderRemainingShips();
             let seria=1;
             let randArr = Math.floor(Math.random() * 4);
             while (beforeAI == afterAI) {
@@ -94,6 +101,7 @@ for (let i = 0; i < aiCells.length; i++) {
                 afterAI = user.board.getMissedAttacks().length;
                 renderUserShips();
                 renderAiShips();
+                //renderRemainingShips();
             }
             if (user.board.remainingShips() == 0) {
                 gameResult.style.color ="red";
@@ -101,6 +109,8 @@ for (let i = 0; i < aiCells.length; i++) {
             }
             renderUserShips();
             renderAiShips();
+            renderRemainingShips();
+
         }
 
         if (ai.board.remainingShips() == 0) {
@@ -136,6 +146,10 @@ restart.addEventListener("click", () => {
     description.textContent = "Place your ships on the board";
     gameResult.textContent = "";
     gameResult.style.color = "rgb(255, 217, 0)";
+    gameInfos.forEach((info) => {
+        info.style.display = "none";
+    });
+    aiArea.style.display = "none";
     updateShipLenght(shipIndex);
 });
 
@@ -190,4 +204,15 @@ function startGame() {
     positionOfShip.style.display = "none";
     curShipLength.style.display = "none";
     description.textContent = "Attack the enemy";
+    gameInfos.forEach((info)=>{
+        info.style.display="flex";
+    });
+    aiArea.style.display="flex";
+    userShipsRemaining.textContent = `5 Ships Available`;
+    aiShipsRemaining.textContent = `5 Ships Available`;
+}
+
+function renderRemainingShips() {
+    userShipsRemaining.textContent = `${user.board.remainingShips()} Ships Available`;
+    aiShipsRemaining.textContent = `${ai.board.remainingShips()} Ships Available`;
 }
